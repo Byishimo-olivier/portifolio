@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byishimo Olivier - Software Engineer & Cybersecurity Technician</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a0e27;
+            --secondary-color: #6366f1;
+            --accent-color: #8b5cf6;
+            --success-color: #10b981;
+            --text-light: #64748b;
+            --text-dark: #0f172a;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        /* Glass morphism navbar */
+        .navbar {
+            background: rgba(10, 14, 39, 0.9) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(10, 14, 39, 0.95) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+       /* Profile container inside Hero Section */
+.hero-section .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Profile image wrapper */
+.hero-section .profile-img {
+    width: 220px;         /* control size */
+    height: 220px;
+    border-radius: 50%;   /* make it circular */
+    overflow: hidden;     /* crop image inside circle */
+    border: 5px solid #fff;  /* white border around */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image itself */
+.hero-section .profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* ensures proper crop */
+    display: block;
+}
+
+/* Hover effect */
+.hero-section .profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #c7d2fe;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Introduction Section */
+        .intro-section {
+            padding: 8rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            position: relative;
+        }
+        
+        .intro-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .intro-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--bg-gradient);
+        }
+        
+        .intro-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(99, 102, 241, 0.2);
+        }
+        
+        /* Projects Section */
+        .projects-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(99, 102, 241, 0.25);
+        }
+        
+        .project-header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: projectShine 4s linear infinite;
+        }
+        
+        @keyframes projectShine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--secondary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-tag:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Button Styles */
+        .btn-custom {
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-custom:hover::before {
+            left: 100%;
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            background: transparent;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-custom:hover {
+            background: white;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Section Titles */
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--bg-gradient);
+            border-radius: 2px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--primary-color);
+            color: white;
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(99,102,241,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        .contact-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Skills Enhancement */
+        .skill-badge {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            margin: 0.3rem;
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-badge:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Card Enhancements */
+        .card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: white;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.05), transparent);
+            transition: left 0.8s;
+        }
+        
+        .card:hover::before {
+            left: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(99, 102, 241, 0.15);
+        }
+        
+        /* Timeline Enhancements */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--bg-gradient);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 1rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid var(--secondary-color);
+            box-shadow: 0 0 0 4px white, 0 0 20px rgba(99, 102, 241, 0.3);
+            transform: translateX(50%);
+            z-index: 1;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .profile-img {
+                width: 200px;
+                height: 200px;
+                font-size: 3rem;
+            }
+            
+            .timeline {
+                padding-left: 2rem;
+            }
+            
+            .timeline-item::before {
+                left: -2rem;
+                width: 15px;
+                height: 15px;
+            }
+        }
+        
+        /* Scroll animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-in-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-in-left.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-in-right.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
+    
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particle" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="top: 20%; left: 80%; animation-delay: 1s;"></div>
+    <div class="particle" style="top: 60%; left: 20%; animation-delay: 2s;"></div>
+    <div class="particle" style="top: 80%; left: 70%; animation-delay: 3s;"></div>
+    <div class="particle" style="top: 40%; left: 90%; animation-delay: 4s;"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand font-mono" href="#home">{'< Olivier />'}</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#introduction">Introduction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6 hero-content">
+                    <div class="profile-container">
+                        <div class="profile-img">
+                            <img src="/images/profile.jpg" alt="Byishimo Olivier">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">Byishimo Olivier</h1>
+                    <h3 class="hero-subtitle font-mono">Software Engineer & Cybersecurity Expert</h3>
+                    <p class="hero-description">Crafting secure, scalable digital solutions with cutting-edge technology. I bridge the gap between innovative development and robust cybersecurity to build the future, one line of code at a time.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#projects" class="btn btn-custom">
+                            <i class="fas fa-rocket me-2"></i>View My Work
+                        </a>
+                        <a href="#contact" class="btn btn-outline-custom">
+                            <i class="fas fa-paper-plane me-2"></i>Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="intro-card position-relative p-5 fade-in-up">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8">
+                                <h2 class="section-title text-start mb-4">Hello, I'm Olivier</h2>
+                                <p class="lead mb-4">A passionate technologist at the intersection of software engineering and cybersecurity, currently in my final semester at AUCA pursuing a BSc in Software Engineering.</p>
+                                <p class="mb-4">My journey in technology is driven by a simple belief: that secure, well-crafted software can transform how we live and work. With hands-on experience in full-stack development and a Certified Cybersecurity Technician (C|CT) credential, I bring a unique perspective to every project.</p>
+                                <p class="mb-4">From building responsive web applications with Next.js and Node.js to implementing robust security protocols, I thrive on solving complex challenges and creating solutions that users love and trust.</p>
+                                <div class="d-flex gap-3 flex-wrap">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                        <span>Kigali, Rwanda</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-graduation-cap text-success me-2"></i>
+                                        <span>Final Year Student</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-shield-alt text-warning me-2"></i>
+                                        <span>Certified C|CT</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <div class="position-relative">
+                                    <div class="bg-gradient rounded-circle mx-auto" style="width: 200px; height: 200px; background: var(--bg-gradient); display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-laptop-code text-white" style="font-size: 4rem;"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="d-flex justify-content-center gap-3">
+                                            <div class="text-center">
+                                                <div class="fw-bold text-primary h4">5+</div>
+                                                <small class="text-muted">Websites Built</small>
+                                            </div>
+                                            <div class="text-center">
+                                                <div class="fw-bold text-success h4">10+</div>
+                                                <small class="text-muted">Technologies</small>
+                                            </div>
+                                            <div class="text-center">
+                                                <div class="fw-bold text-warning h4">3+</div>
+                                                <small class="text-muted">Years Experience</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 fade-in-up">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h4 class="mb-2">Modern Web Platform</h4>
+                            <p class="mb-0">Responsive business website with advanced SEO optimization</p>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-muted mb-3">Built a fully responsive business platform using Next.js with server-side rendering, achieving 99.9% uptime and superior performance metrics.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Vercel</span>
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i>Live Demo
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="fab fa-github me-1"></i>Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="mb-2">C programming</h4>
+                            <p class="mb-0">Hotel Reservations</p>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-muted mb-3">Developed a comprehensive security assessment tool that performs network vulnerability scans and generates detailed compliance reports.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">C programming</span>
+                                <span class="tech-tag">MySQL</span>
+                                
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i>Live Demo
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="fab fa-github me-1"></i>Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4 class="mb-2">Library Mobile App</h4>
+                            <p class="mb-0">Cross-platform productivity app with real-time sync</p>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-muted mb-3">Built a feature-rich mobile application using Flutter with cloud synchronization, offline support, and intuitive user interface design.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Flutter</span>
+                                <span class="tech-tag">Dart</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">SQLite</span>
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i>Live Demo
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="fab fa-github me-1"></i>Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h4 class="mb-2">Java project of ATM</h4>
+                            <p class="mb-0">Interactive dashboard for business intelligence</p>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-muted mb-3">Created a comprehensive analytics dashboard with real-time data visualization, automated reporting, and role-based access control.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Hibernate Framework</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">SWING</span>
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i>Live Demo
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="fab fa-github me-1"></i>Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.8s;">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h4 class="mb-2">Audit Management system</h4>
+                            <p class="mb-0">Real-time monitoring and alerting system</p>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-muted mb-3">Developed a cloud monitoring solution that tracks server health, performance metrics, and sends intelligent alerts for proactive maintenance.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Hibernate Framework</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">SWING</span>
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i>Live Demo
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="fab fa-github me-1"></i>Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 1s;">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h4 class="mb-2">Secure Authentication API</h4>
+                            <p class="mb-0">JWT-based authentication with multi-factor security</p>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-muted mb-3">Built a robust authentication service with JWT tokens, OAuth integration, rate limiting, and comprehensive security logging.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">JWT</span>
+                                <span class="tech-tag">OAuth</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i>Live Demo
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="fab fa-github me-1"></i>Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#contact" class="btn btn-custom btn-lg">
+                    <i class="fas fa-rocket me-2"></i>Let's Build Something Amazing Together
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-5" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);">
+        <div class="container">
+            <h2 class="section-title">Professional Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in-left">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <i class="fas fa-code text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="card-title mb-1">Web Developer</h4>
+                                    <h6 class="text-primary mb-1">Ndiisi Ltd – Kigali, Rwanda</h6>
+                                    <p class="text-muted mb-0"><i class="fas fa-calendar me-2"></i>November 2024 – April 2025</p>
+                                </div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Designed and deployed 5 responsive websites using WordPress, Node.js, and Next.js</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Migrated legacy PHP systems to modern platforms, boosting performance by 40%</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Built and managed RESTful APIs with 99.9% uptime</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Implemented SEO optimization resulting in 60% traffic increase</li>
+                                <li class="mb-0"><i class="fas fa-check-circle text-success me-2"></i>Provided comprehensive documentation and client training</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in-right">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <div class="bg-success rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <i class="fas fa-database text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="card-title mb-1">Database Manager Assistant</h4>
+                                    <h6 class="text-success mb-1">Rwanda Women Network – Kigali, Rwanda</h6>
+                                    <p class="text-muted mb-0"><i class="fas fa-calendar me-2"></i>May 2022 – February 2023</p>
+                                </div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Digitized and verified critical organizational data with 99.8% accuracy</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Optimized database workflows reducing processing time by 35%</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Implemented backup strategies ensuring zero data loss</li>
+                                <li class="mb-0"><i class="fas fa-check-circle text-success me-2"></i>Designed promotional materials boosting brand visibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in-left">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <i class="fas fa-headset text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="card-title mb-1">Customer & Technical Support</h4>
+                                    <h6 class="text-warning mb-1">Lucky Bet – Rusizi, Rwanda</h6>
+                                    <p class="text-muted mb-0"><i class="fas fa-calendar me-2"></i>January 2022 – May 2022</p>
+                                </div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Provided 24/7 customer support with 98% satisfaction rating</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Diagnosed and resolved hardware issues reducing downtime by 50%</li>
+                                <li class="mb-0"><i class="fas fa-check-circle text-success me-2"></i>Created user documentation improving self-service capabilities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in-right">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <div class="bg-info rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <i class="fas fa-users text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="card-title mb-1">Team Leader & Data Collector</h4>
+                                    <h6 class="text-info mb-1">ITEC Ltd – Rusizi, Rwanda</h6>
+                                    <p class="text-muted mb-0"><i class="fas fa-calendar me-2"></i>December 2021 – February 2022</p>
+                                </div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Led 10-person data collection team for regional development project</li>
+                                <li class="mb-0"><i class="fas fa-check-circle text-success me-2"></i>Ensured 100% data quality and timely project completion</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Technical Arsenal</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 fade-in-up">
+                    <div class="card h-100 text-center">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <div class="bg-gradient rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background: var(--bg-gradient);">
+                                    <i class="fas fa-code text-white" style="font-size: 2rem;"></i>
+                                </div>
+                            </div>
+                            <h4 class="card-title mb-3">Frontend Development</h4>
+                            <div class="text-start">
+                                <span class="skill-badge">HTML5</span>
+                                <span class="skill-badge">CSS3</span>
+                                <span class="skill-badge">JavaScript</span>
+                                <span class="skill-badge">React</span>
+                                <span class="skill-badge">Next.js</span>
+                                <span class="skill-badge">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="card h-100 text-center">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <div class="bg-gradient rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background: var(--bg-gradient);">
+                                    <i class="fas fa-server text-white" style="font-size: 2rem;"></i>
+                                </div>
+                            </div>
+                            <h4 class="card-title mb-3">Backend Development</h4>
+                            <div class="text-start">
+                                <span class="skill-badge">Node.js</span>
+                                <span class="skill-badge">PHP</span>
+                                <span class="skill-badge">Java</span>
+                                <span class="skill-badge">RESTful APIs</span>
+                                <span class="skill-badge">Express.js</span>
+                                <span class="skill-badge">WordPress</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="card h-100 text-center">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <div class="bg-gradient rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background: var(--bg-gradient);">
+                                    <i class="fas fa-database text-white" style="font-size: 2rem;"></i>
+                                </div>
+                            </div>
+                            <h4 class="card-title mb-3">Database & Cloud</h4>
+                            <div class="text-start">
+                                <span class="skill-badge">MySQL</span>
+                                <span class="skill-badge">PostgreSQL</span>
+                                <span class="skill-badge">SQLite</span>
+                                <span class="skill-badge">AWS</span>
+                                <span class="skill-badge">Vercel</span>
+                                <span class="skill-badge">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="card h-100 text-center">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <div class="bg-gradient rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background: var(--bg-gradient);">
+                                    <i class="fas fa-shield-alt text-white" style="font-size: 2rem;"></i>
+                                </div>
+                            </div>
+                            <h4 class="card-title mb-3">Cybersecurity</h4>
+                            <div class="text-start">
+                                <span class="skill-badge">Network Security</span>
+                                <span class="skill-badge">Penetration Testing</span>
+                                <span class="skill-badge">Vulnerability Assessment</span>
+                                <span class="skill-badge">Incident Response</span>
+                                <span class="skill-badge">Security Auditing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.8s;">
+                    <div class="card h-100 text-center">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <div class="bg-gradient rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background: var(--bg-gradient);">
+                                    <i class="fas fa-mobile-alt text-white" style="font-size: 2rem;"></i>
+                                </div>
+                            </div>
+                            <h4 class="card-title mb-3">Mobile Development</h4>
+                            <div class="text-start">
+                                <span class="skill-badge">Flutter</span>
+                                <span class="skill-badge">Dart</span>
+                                <span class="skill-badge">Firebase</span>
+                                <span class="skill-badge">Cross-platform</span>
+                                <span class="skill-badge">Mobile UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 1s;">
+                    <div class="card h-100 text-center">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <div class="bg-gradient rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background: var(--bg-gradient);">
+                                    <i class="fas fa-tools text-white" style="font-size: 2rem;"></i>
+                                </div>
+                            </div>
+                            <h4 class="card-title mb-3">Development Tools</h4>
+                            <div class="text-start">
+                                <span class="skill-badge">Git</span>
+                                <span class="skill-badge">SVN</span>
+                                <span class="skill-badge">VS Code</span>
+                                <span class="skill-badge">Figma</span>
+                                <span class="skill-badge">Postman</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 1.2s;">
+                    <div class="card h-100 text-center">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <div class="bg-gradient rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background: var(--bg-gradient);">
+                                    <i class="fas fa-laptop text-white" style="font-size: 2rem;"></i>
+                                </div>
+                            </div>
+                            <h4 class="card-title mb-3">Productivity Suite</h4>
+                            <div class="text-start">
+                                <span class="skill-badge">MS Office 365</span>
+                                <span class="skill-badge">Google Workspace</span>
+                                <span class="skill-badge">Project Management</span>
+                                <span class="skill-badge">Technical Writing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education" class="py-5" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);">
+        <div class="container">
+            <h2 class="section-title">Education & Achievements</h2>
+            <div class="row g-4">
+                <div class="col-lg-6 fade-in-left">
+                    <div class="card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                    <i class="fas fa-graduation-cap text-white" style="font-size: 1.5rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 class="card-title mb-1">Academic Journey</h4>
+                                    <p class="text-muted mb-0">Building the foundation for tech excellence</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="mb-1">BSc in Software Engineering</h5>
+                                    <span class="badge bg-warning text-dark">Final Semester</span>
+                                </div>
+                                <p class="text-primary mb-1 fw-semibold">Adventist University of Central Africa (AUCA)</p>
+                                <p class="text-muted mb-2"><i class="fas fa-calendar me-2"></i>April 2022 – December 2025 (Expected)</p>
+                                <p class="text-muted small">Specializing in full-stack development, software architecture, and cybersecurity fundamentals with hands-on project experience.</p>
+                            </div>
+
+                            <div class="border-top pt-3">
+                                <h6 class="fw-semibold mb-2"><i class="fas fa-award text-warning me-2"></i>Academic Recognition</h6>
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-trophy text-warning me-3" style="font-size: 1.2rem;"></i>
+                                    <div>
+                                        <strong>MasterCard Foundation Scholarship</strong>
+                                        <br><small class="text-muted">ALX (2024) - Merit-based full scholarship</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 fade-in-right">
+                    <div class="card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-success rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                    <i class="fas fa-certificate text-white" style="font-size: 1.5rem;"></i>
+                                </div>
+                                <div>
+                                    <h4 class="card-title mb-1">Professional Certifications</h4>
+                                    <p class="text-muted mb-0">Industry-recognized credentials</p>
+                                </div>
+                            </div>
+                            
+                            <div class="certification-list">
+                                <div class="d-flex align-items-center mb-3 p-2 rounded" style="background: rgba(99, 102, 241, 0.05);">
+                                    <div class="bg-danger rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                        <i class="fas fa-shield-alt text-white"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <strong class="d-block">Certified Cybersecurity Technician (C|CT)</strong>
+                                        <small class="text-muted">EC-Council • 2025</small>
+                                    </div>
+                                    <span class="badge bg-danger">Latest</span>
+                                </div>
+
+                                <div class="d-flex align-items-center mb-3 p-2 rounded" style="background: rgba(99, 102, 241, 0.05);">
+                                    <div class="bg-info rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                        <i class="fas fa-robot text-white"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <strong class="d-block">AiCE – AI Career Essentials</strong>
+                                        <small class="text-muted">ALX • 2024</small>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center mb-3 p-2 rounded" style="background: rgba(99, 102, 241, 0.05);">
+                                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                        <i class="fas fa-network-wired text-white"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <strong class="d-block">Network Operations</strong>
+                                        <small class="text-muted">Internet Society • 2024</small>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center mb-3 p-2 rounded" style="background: rgba(99, 102, 241, 0.05);">
+                                    <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                        <i class="fas fa-server text-white"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <strong class="d-block">Computer Networking</strong>
+                                        <small class="text-muted">Cisco Networking Academy • 2023</small>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center p-2 rounded" style="background: rgba(99, 102, 241, 0.05);">
+                                    <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                        <i class="fas fa-user-tie text-white"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <strong class="d-block">Virtual Assistant Program</strong>
+                                        <small class="text-muted">ALX • 2023</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container position-relative">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title text-white mb-4">Let's Create Something Extraordinary</h2>
+                    <p class="lead mb-5 text-light">Ready to bring your next big idea to life? Whether it's a cutting-edge web application, a secure mobile solution, or a comprehensive cybersecurity strategy, I'm here to make it happen.</p>
+                    
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4 fade-in-up">
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h5 class="mb-2">Email Me</h5>
+                                <p class="mb-3">Let's discuss your project requirements</p>
+                                <a href="mailto:oliverbyo34@gmail.com" class="text-white text-decoration-none fw-semibold">
+                                    oliverbyo34@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 fade-in-up" style="animation-delay: 0.2s;">
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h5 class="mb-2">Location</h5>
+                                <p class="mb-3">Available for remote & on-site collaboration</p>
+                                <span class="text-white fw-semibold">Kigali, Rwanda</span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 fade-in-up" style="animation-delay: 0.4s;">
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h5 class="mb-2">Availability</h5>
+                                <p class="mb-3">Open for new opportunities</p>
+                                <span class="text-white fw-semibold">Immediate Start Available</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="card mx-auto" style="max-width: 600px; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border);">
+                            <div class="card-body p-5">
+                                <h4 class="text-white text-center mb-4">Send Me a Message</h4>
+                                <form id="contactForm">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" id="firstName" placeholder="First Name" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;" required>
+                                                <label for="firstName" style="color: rgba(255,255,255,0.8);">First Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;" required>
+                                                <label for="lastName" style="color: rgba(255,255,255,0.8);">Last Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <input type="email" class="form-control" id="email" placeholder="Email Address" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;" required>
+                                                <label for="email" style="color: rgba(255,255,255,0.8);">Email Address</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <select class="form-select" id="projectType" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;" required>
+                                                    <option value="">Select Project Type</option>
+                                                    <option value="web-development">Web Development</option>
+                                                    <option value="mobile-app">Mobile App Development</option>
+                                                    <option value="cybersecurity">Cybersecurity Consultation</option>
+                                                    <option value="full-stack">Full-Stack Solution</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                                <label for="projectType" style="color: rgba(255,255,255,0.8);">Project Type</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" id="message" placeholder="Project Details" style="height: 120px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;" required></textarea>
+                                                <label for="message" style="color: rgba(255,255,255,0.8);">Tell me about your project...</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-custom btn-lg px-5">
+                                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5 fade-in-up" style="animation-delay: 0.8s;">
+                        <p class="text-light mb-3">Prefer to connect directly?</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <a href="mailto:oliverbyo34@gmail.com" class="btn btn-outline-custom">
+                                <i class="fas fa-envelope me-2"></i>Email Direct
+                            </a>
+                            <a href="#" class="btn btn-outline-custom">
+                                <i class="fab fa-linkedin me-2"></i>LinkedIn
+                            </a>
+                            <a href="#" class="btn btn-outline-custom">
+                                <i class="fab fa-github me-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 text-center" style="background: rgba(10, 14, 39, 0.95); color: white; border-top: 1px solid rgba(99, 102, 241, 0.2);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="d-flex justify-content-center align-items-center mb-4">
+                        <div class="bg-gradient rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; background: var(--bg-gradient);">
+                            <i class="fas fa-code text-white"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0 font-mono">{'< Olivier />'}</h5>
+                            <small class="text-muted">Software Engineer & Cybersecurity Expert</small>
+                        </div>
+                    </div>
+                    
+                    <div class="row text-center mb-4">
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <i class="fas fa-map-marker-alt text-primary"></i>
+                                <span class="ms-2">Kigali, Rwanda</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <i class="fas fa-envelope text-success"></i>
+                                <span class="ms-2">oliverbyo34@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-2">
+                                <i class="fas fa-graduation-cap text-warning"></i>
+                                <span class="ms-2">AUCA Graduate 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-top border-secondary pt-4 mt-4">
+                        <p class="mb-2">&copy; 2025 Byishimo Olivier. All rights reserved.</p>
+                        <p class="small text-muted mb-0">Built with passion using modern web technologies • Designed for performance and accessibility</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Enhanced navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const scrolled = window.scrollY > 50;
+            
+            if (scrolled) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Update active nav link based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Advanced scroll animations with Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Card hover effects with mouse tracking
+        document.querySelectorAll('.card, .project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+            
+            card.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                this.style.transform = `translateY(-10px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+        });
+
+        // Skill badges animation on hover
+        document.querySelectorAll('.skill-badge').forEach(badge => {
+            badge.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.1) rotate(2deg)';
+            });
+            
+            badge.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+            });
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                projectType: document.getElementById('projectType').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Create email subject and body
+            const subject = `New Project Inquiry: ${formData.projectType} from ${formData.firstName} ${formData.lastName}`;
+            const body = `Hello Olivier,
+
+I'm interested in working with you on a ${formData.projectType} project.
+
+Contact Details:
+Name: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+
+Project Details:
+${formData.message}
+
+Looking forward to hearing from you!
+
+Best regards,
+${formData.firstName}`;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:oliverbyo34@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check me-2"></i>Email Client Opened!';
+            button.classList.remove('btn-custom');
+            button.classList.add('btn-success');
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('btn-success');
+                button.classList.add('btn-custom');
+            }, 3000);
+        });
+
+        // Add typing animation to hero section
+        const heroTitle = document.querySelector('.hero-title');
+        if (heroTitle) {
+            const text = heroTitle.textContent;
+            heroTitle.textContent = '';
+            let i = 0;
+            
+            const typeWriter = () => {
+                if (i < text.length) {
+                    heroTitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            
+            setTimeout(typeWriter, 1000);
+        }
+
+        // Add parallax effect to background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.particle');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Trigger hero animations
+            const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-description');
+            heroElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+
+        // Add dynamic project button functionality
+        document.querySelectorAll('.project-card .btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const projectTitle = this.closest('.project-card').querySelector('h4').textContent;
+                alert(`Demo for "${projectTitle}" - This would open the live project or repository. Contact me for access to live demos!`);
+            });
+        });
+
+        // Add floating particles animation
+        function createFloatingParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (3 + Math.random() * 4) + 's';
+            particle.style.opacity = Math.random() * 0.5 + 0.2;
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+
+        // Create particles periodically
+        setInterval(createFloatingParticle, 3000);
+
+        // Add form input focus effects
+        document.querySelectorAll('.form-control, .form-select').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.borderColor = 'var(--secondary-color)';
+                this.style.boxShadow = '0 0 0 0.2rem rgba(99, 102, 241, 0.25)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.style.borderColor = 'rgba(255,255,255,0.2)';
+                this.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
